@@ -607,10 +607,6 @@
                             {
                               "Ref": "gameservers96C3BF90"
                             },
-                            "/",
-                            {
-                              "Ref": "baseImageName"
-                            },
                             ":",
                             {
                               "Ref": "baseImageVersion"
@@ -619,13 +615,9 @@
                             {
                               "Ref": "gameservers96C3BF90"
                             },
-                            "\",\n        \"docker push 742301976366.dkr.ecr.us-east-2.amazonaws.com/",
+                            "\",\n        \"docker push 742301976366.dkr.ecr.us-east-2.amazonaws.com//",
                             {
                               "Ref": "gameservers96C3BF90"
-                            },
-                            "/",
-                            {
-                              "Ref": "baseImageName"
                             },
                             ":",
                             {
