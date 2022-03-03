@@ -50,7 +50,7 @@ export class PipelineStack extends Stack {
   const repo = new codecommit.Repository(this, `gitRepo`, {
       repositoryName: gitRepoName.valueAsString,
       description: "New repository for demo project.",
-      code: codecommit.Code.fromDirectory('../stk-code-base','main'),
+      code: codecommit.Code.fromDirectory('./stk-code-base','main'),
      
   });
     
