@@ -607,23 +607,15 @@
                             {
                               "Ref": "gameservers96C3BF90"
                             },
-                            ":",
-                            {
-                              "Ref": "baseImageVersion"
-                            },
-                            " .\",\n        \"aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 742301976366.dkr.ecr.us-east-2.amazonaws.com/",
+                            ":latest .\",\n        \"aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 742301976366.dkr.ecr.us-east-2.amazonaws.com/",
                             {
                               "Ref": "gameservers96C3BF90"
                             },
-                            "\",\n        \"docker push 742301976366.dkr.ecr.us-east-2.amazonaws.com//",
+                            "\",\n        \"docker push 742301976366.dkr.ecr.us-east-2.amazonaws.com/",
                             {
                               "Ref": "gameservers96C3BF90"
                             },
-                            ":",
-                            {
-                              "Ref": "baseImageVersion"
-                            },
-                            "\"\n      ]\n    }\n  },\n  \"artifacts\": {\n    \"files\": [\n      \"imageDetail.json\"\n    ]\n  }\n}"
+                            ":latest\"\n      ]\n    }\n  },\n  \"artifacts\": {\n    \"files\": [\n      \"imageDetail.json\"\n    ]\n  }\n}"
                           ]
                         ]
                       }

@@ -1,14 +1,16 @@
-# Welcome to your CDK TypeScript project
+# Welcome to the containerized Super Tux Kart CDK sample
 
-This is a blank project for TypeScript development with CDK.
+This is a CDK TypeScript project to deploy a CI/CD pipeline for [Super Tux Kart](https://github.com/supertuxkart) containerized game servers. 
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+To get started with this project. 
 
-## Useful commands
+* Clone the repo
+* Run `cdk deploy --parameters notificationEmail=xxx@yyy.com --parameters notifyPhone=+9999999999 —parameters gitRepoName=myDemo`
 
-* `npm run build`   compile typescript to js
-* `npm run watch`   watch for changes and compile
-* `npm run test`    perform the jest unit tests
-* `cdk deploy`      deploy this stack to your default AWS account/region
-* `cdk diff`        compare deployed stack with current state
-* `cdk synth`       emits the synthesized CloudFormation template
+The stack deploys the following resources:
+
+* Git repository to store the Super Tux Kart Dockerfile
+* ECR registry to store the Super Tux Kart game server image
+* CodeBuild project to build Super Tux Kart images on ARM
+* SNS Notifications to update end users on the status of the build
+* CodePipeline to perform the build stages and release to production
