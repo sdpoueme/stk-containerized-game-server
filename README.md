@@ -5,6 +5,9 @@ This is a CDK TypeScript project to deploy a CI/CD pipeline for [Super Tux Kart]
 To get started with this project. 
 
 * Clone the repo
+* Install CDK `npm install aws-cdk-lib`
+* Bootstrap cdk `cdk bootstrap`
+* Run `npm install`
 * Run `cdk deploy --parameters notificationEmail=xxx@yyy.com --parameters notifyPhone=+9999999999 —parameters gitRepoName=myDemo`
 
 The stack deploys the following resources:
