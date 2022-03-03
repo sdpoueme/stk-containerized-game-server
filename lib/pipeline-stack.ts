@@ -81,9 +81,9 @@ export class PipelineStack extends Stack {
         version: "0.2",
         phases: {
           build: {
-            commands: [`docker build -t ${this.account}.dkr.ecr.${this.region}.amazonaws.com/${registry.repositoryName}/${baseImageName.valueAsString}:${baseImageVersion.valueAsString} .`,
+            commands: [`docker build -t ${this.account}.dkr.ecr.${this.region}.amazonaws.com/${registry.repositoryName}:${baseImageVersion.valueAsString} .`,
             `aws ecr get-login-password --region ${this.region} | docker login --username AWS --password-stdin ${this.account}.dkr.ecr.${this.region}.amazonaws.com/${registry.repositoryName}`,
-            `docker push ${this.account}.dkr.ecr.${this.region}.amazonaws.com/${registry.repositoryName}/${baseImageName.valueAsString}:${baseImageVersion.valueAsString}`],
+            `docker push ${this.account}.dkr.ecr.${this.region}.amazonaws.com//${registry.repositoryName}:${baseImageVersion.valueAsString}`],
           }
            
         },
