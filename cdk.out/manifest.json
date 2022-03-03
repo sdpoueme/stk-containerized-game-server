@@ -1,0 +1,238 @@
+{
+  "version": "16.0.0",
+  "artifacts": {
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    },
+    "PipelineStack.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "PipelineStack.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "PipelineStack": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://742301976366/us-east-2",
+      "properties": {
+        "templateFile": "PipelineStack.template.json",
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::742301976366:role/cdk-hnb659fds-deploy-role-742301976366-us-east-2",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::742301976366:role/cdk-hnb659fds-cfn-exec-role-742301976366-us-east-2",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-742301976366-us-east-2/379c84f0980c888fa627db8d496b2ba1a4f2f5711f7a64c38768db77792e4b07.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "PipelineStack.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::742301976366:role/cdk-hnb659fds-lookup-role-742301976366-us-east-2",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "PipelineStack.assets"
+      ],
+      "metadata": {
+        "/PipelineStack/notifyPhone": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "notifyPhone"
+          }
+        ],
+        "/PipelineStack/notificationEmail": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "notificationEmail"
+          }
+        ],
+        "/PipelineStack/gitRepoName": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "gitRepoName"
+          }
+        ],
+        "/PipelineStack/baseImageName": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "baseImageName"
+          }
+        ],
+        "/PipelineStack/baseImageVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "baseImageVersion"
+          }
+        ],
+        "/PipelineStack/gitRepo/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "gitRepoE79A5E14"
+          }
+        ],
+        "/PipelineStack/gitRepo/PipelineStackcontainerPipeline7D038BD0-main-EventRule/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "gitRepoPipelineStackcontainerPipeline7D038BD0mainEventRule0E4A529D"
+          }
+        ],
+        "/PipelineStack/BuildNotifications/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BuildNotificationsDA021452"
+          }
+        ],
+        "/PipelineStack/BuildNotifications/TokenSubscription:1/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BuildNotificationsTokenSubscription1567E543C"
+          }
+        ],
+        "/PipelineStack/BuildNotifications/TokenSubscription:2/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BuildNotificationsTokenSubscription2691C2A51"
+          }
+        ],
+        "/PipelineStack/BuildNotifications/Policy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BuildNotificationsPolicyFD25377F"
+          }
+        ],
+        "/PipelineStack/game-servers/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "gameservers96C3BF90"
+          }
+        ],
+        "/PipelineStack/dockerBuild/Role/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "dockerBuildRole92F2A9D6"
+          }
+        ],
+        "/PipelineStack/dockerBuild/Role/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "dockerBuildRoleDefaultPolicy4D647647"
+          }
+        ],
+        "/PipelineStack/dockerBuild/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "dockerBuild9FAAB478"
+          }
+        ],
+        "/PipelineStack/containerPipeline/ArtifactsBucketEncryptionKey/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "containerPipelineArtifactsBucketEncryptionKeyFAE4D6AF"
+          }
+        ],
+        "/PipelineStack/containerPipeline/ArtifactsBucketEncryptionKeyAlias/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "containerPipelineArtifactsBucketEncryptionKeyAlias4460BD45"
+          }
+        ],
+        "/PipelineStack/containerPipeline/ArtifactsBucket/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "containerPipelineArtifactsBucket24B5D85B"
+          }
+        ],
+        "/PipelineStack/containerPipeline/ArtifactsBucket/Policy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "containerPipelineArtifactsBucketPolicyBA24F528"
+          }
+        ],
+        "/PipelineStack/containerPipeline/Role/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "containerPipelineRole7FEA970C"
+          }
+        ],
+        "/PipelineStack/containerPipeline/Role/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "containerPipelineRoleDefaultPolicy24580DF1"
+          }
+        ],
+        "/PipelineStack/containerPipeline/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "containerPipelineE427408B"
+          }
+        ],
+        "/PipelineStack/containerPipeline/Source/CodeCommit_Source/CodePipelineActionRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "containerPipelineSourceCodeCommitSourceCodePipelineActionRole9BBD9446"
+          }
+        ],
+        "/PipelineStack/containerPipeline/Source/CodeCommit_Source/CodePipelineActionRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "containerPipelineSourceCodeCommitSourceCodePipelineActionRoleDefaultPolicyE9C5617F"
+          }
+        ],
+        "/PipelineStack/containerPipeline/EventsRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "containerPipelineEventsRole7F8AAEEF"
+          }
+        ],
+        "/PipelineStack/containerPipeline/EventsRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "containerPipelineEventsRoleDefaultPolicyEC210F09"
+          }
+        ],
+        "/PipelineStack/containerPipeline/DockerBuild/Build_Code/CodePipelineActionRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "containerPipelineDockerBuildBuildCodeCodePipelineActionRole1809C40C"
+          }
+        ],
+        "/PipelineStack/containerPipeline/DockerBuild/Build_Code/CodePipelineActionRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "containerPipelineDockerBuildBuildCodeCodePipelineActionRoleDefaultPolicyB6026FFD"
+          }
+        ],
+        "/PipelineStack/buildNotificationRule/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "buildNotificationRule5821673A"
+          }
+        ],
+        "/PipelineStack/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/PipelineStack/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/PipelineStack/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "PipelineStack"
+    }
+  }
+}
