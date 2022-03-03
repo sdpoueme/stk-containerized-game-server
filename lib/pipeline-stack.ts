@@ -17,13 +17,13 @@ export class PipelineStack extends Stack {
   const notifyPhone = new CfnParameter(this, "notifyPhone", {
   type: "String",
   description: "The recipient phone number for pipeline notification",
-  default: "5148650526"
+  default: "+19999999999"
   });
   
   const notificationEmail = new CfnParameter(this, "notificationEmail", {
   type: "String",
   description: "The recipient email for pipeline notifications",
-  default: "pouemes@amazon.com"
+  default: "myemail@site.com"
   });
   
   const gitRepoName = new CfnParameter(this, "gitRepoName", {
