@@ -1,0 +1,33 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+metadata:
+  name: game-server-eks
+  region: us-east-2
+  version: '1.21'
+  tags:
+    game: stk
+    karpenter.sh/discovery: cluster-with-karpenter
+iam:
+  withOIDC: true
+karpenter:
+  version: '0.6.2'
+  createServiceAccount: true # default is false
+managedNodeGroups:
+  - name: managed-ng-1
+    instanceType: t3.large
+    minSize: 1
+    maxSize: 3
+    desiredCapacity: 2
+      labels: {gamemode: multiplayer}
+      tags:
+        stk-version: latest
+
+  - name: managed-ng-2
+    instanceType: t3.micro
+    minSize: 1
+    maxSize: 3
+    desiredCapacity: 2
+      labels: {gamemode: singleplayer}
+      tags:
+        stk-version: latest
+

@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: stk-pod
+  labels:
+    app: stk
+spec:
+   volumes:
+   - name: stk-assets
+     hostPath:
+      path: /SuperTuxKart.app/Contents/Resources/data
+  containers:
+  - name: stk-server
+    image: 742301976366.dkr.ecr.us-east-2.amazonaws.com/game-servers/stk-server:latest
+    command: ['sh', '-c', '/usr/local/bin/supertuxkart']
+  initContainers:
+  - name: stk-init
+    image: busybox:1.28
+    command: ['sh', '-c', 'svn co https://svn.code.sf.net/p/supertuxkart/code/stk-assets stk-assets']
+    volumeMounts:
+    - name: stk-assets
+      mountPath: /stk-assets
