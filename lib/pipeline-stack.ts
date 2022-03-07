@@ -17,13 +17,13 @@ export class PipelineStack extends Stack {
   const notifyPhone = new CfnParameter(this, "notifyPhone", {
   type: "String",
   description: "The recipient phone number for pipeline notification",
-  default: "+19999999999"
+  default: "+15148650526"
   });
   
   const notificationEmail = new CfnParameter(this, "notificationEmail", {
   type: "String",
   description: "The recipient email for pipeline notifications",
-  default: "myemail@site.com"
+  default: "pouemes@amazon.com"
   });
   
   const gitRepoName = new CfnParameter(this, "gitRepoName", {
@@ -33,16 +33,16 @@ export class PipelineStack extends Stack {
   });
   
   
-  const baseImageName = new CfnParameter(this, "baseImageName", {
-  type: "String",
-  description: "The docker image name",
-  default: "stk-server"
-  });
-  
   const baseImageVersion = new CfnParameter(this, "baseImageVersion", {
   type: "String",
   description: "The docker image version",
   default: "latest"
+  });
+  
+  const ecrRepoName = new CfnParameter(this, "ecrRepoName", {
+  type: "String",
+  description: "The name of the ecr registry",
+  default: "stk-server"
   });
 
   
@@ -63,6 +63,7 @@ export class PipelineStack extends Stack {
   //docker repository to store container images
   const registry = new ecr.Repository(this,`game-servers`, {
       
+      repositoryName: ecrRepoName.valueAsString,
       imageScanOnPush: true,
     });
     
@@ -81,9 +82,9 @@ export class PipelineStack extends Stack {
         version: "0.2",
         phases: {
           build: {
-            commands: [`docker build -t ${this.account}.dkr.ecr.${this.region}.amazonaws.com/${registry.repositoryName}:latest .`,
+            commands: [`docker build -t ${this.account}.dkr.ecr.${this.region}.amazonaws.com/${registry.repositoryName}:${baseImageVersion.valueAsString} .`,
             `aws ecr get-login-password --region ${this.region} | docker login --username AWS --password-stdin ${this.account}.dkr.ecr.${this.region}.amazonaws.com/${registry.repositoryName}`,
-            `docker push ${this.account}.dkr.ecr.${this.region}.amazonaws.com/${registry.repositoryName}:latest`],
+            `docker push ${this.account}.dkr.ecr.${this.region}.amazonaws.com/${registry.repositoryName}:${baseImageVersion.valueAsString}`],
           }
            
         },
