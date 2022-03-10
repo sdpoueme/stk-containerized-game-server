@@ -1,6 +1,8 @@
 # Welcome to the containerized Super Tux Kart CDK sample
 
-This is a CDK TypeScript project to deploy a CI/CD pipeline for [Super Tux Kart](https://github.com/supertuxkart) containerized game servers. 
+This is a CDK TypeScript project that packages [Super Tux Kart](https://github.com/supertuxkart) into a container. Containers are a great fit for game server’s workload because they’re lightweight, start quickly, and optimize the utilization of the underlying instance. The Super Tux Kart container can be deployed on kubernetes to run game sessions. In this sample, we  use Docker multi-stage builds to package our SuperTuxKart binaries and assets.
+
+ 
 
 To get started with this project. 
 
